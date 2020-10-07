@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catalogue>
+	<Book id="1">
+		<Title>Nice Girls Just Don't Get It</Title>
+		<Author>Lois P. Frankel, Carol Frohlinger</Author>
+		<Year>2011</Year>
+	</Book>
+	<Book id="2">
+		<Title>The Confidence Code</Title>
+		<Author>Katty Kay, Claire Shipman</Author>
+		<Year>2014</Year>
+	</Book>
+	<Book id="3">
+		<Title>I'm Fine and Neither Are You</Title>
+		<Author>Camille Pagán</Author>
+		<Year>2019</Year>
+	</Book>
+</Catalogue>
