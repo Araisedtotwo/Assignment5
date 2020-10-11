@@ -1,0 +1,55 @@
+---
+title: "Week 7"
+author: "Arushi Arora"
+date: "10/6/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r warning=FALSE}
+if (!require('rvest')) install.packages('rvest')
+if(!require('XML'))install.packages('XML')
+if(!require('jsonlite'))install.packages('jsonlite')
+```
+
+### Read the HTML file into R and convert to dataframe
+
+```{r warning=FALSE}
+#ref- https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/
+df1 <- read_html("https://raw.githubusercontent.com/Araisedtotwo/Assignment5/main/books.html") 
+h.df1 <- data.frame(html_table(df1))
+knitr::kable(h.df1)
+```
+
+
+### Read the JSON file into R and convert to dataframe
+
+```{r warning=FALSE}
+df2 <- fromJSON("https://raw.githubusercontent.com/Araisedtotwo/Assignment5/main/books.json")
+j.df2 <- do.call("rbind", lapply(df2, data.frame, stringsAsFactors=FALSE))
+rownames(j.df2) <- NULL
+knitr::kable(j.df2)
+```
+
+
+### Read the XML file into R and convert to dataframe
+
+```{r warning=FALSE}
+df3 <- xmlParse("books.xml")
+x.df3 <- xmlToDataFrame(df3)
+knitr::kable(x.df3)
+```
+
+### Compare the different types of files
+
+```{r}
+str(h.df1)
+str(j.df2)
+str(x.df3)
+```
+
+### Conclusion
+The HTML is read by R as 3 different "Char" values while the JSON file is read as a single char and the different items in the XML file are read by R as "factor" type.
